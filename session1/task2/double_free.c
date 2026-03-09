@@ -12,8 +12,6 @@ int main(void)
     a[3] = 2;
 
     free(a);
-
-    free(a);
-
+    free(a);  // Double free - undefined behavior
     return 0;
 }

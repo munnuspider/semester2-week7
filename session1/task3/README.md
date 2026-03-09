@@ -56,7 +56,9 @@
 4. Check the size of the executable by entering this command in the terminal
    window:
 
-       wc -c task3
+       wc -c task3 
+
+    >>16256 task3
 
    Make a note of the number you see. Then edit `Makefile` so that the
    `CFLAGS` variable includes a definition of the `NDEBUG` preprocessor
@@ -66,9 +68,11 @@
 
    Recompile the application and check its size again. You should see that it
    is slightly smaller, because the assertion code has been removed.
+   >>16160 task3
 
 5. Run the program, without command line arguments. You should no longer
    see a failed assertion.
+   >>Sum of values = 0
 
 6. Comment out line 53 again, then recompile the program, and run it with
    some numbers as command line arguments. You won't see a failed assertion
@@ -125,6 +129,12 @@
 
 4. Run the application in the same ways that you did previously. You should
    now see detailed logging messages appear in the terminal.
+   >>get_values(): argc=1
+get_values(): returning (nil)
+main(): data at (nil)
+main(): num_values=0
+task3: task3.c:33: sum_values: Assertion `data != NULL' failed.
+Aborted (core dumped)
 
 5. You may have been wondering why these macros use `fprintf()` and the
    standard error channel `stderr`, instead of using `printf()`. The reason

@@ -16,13 +16,13 @@ def read_marks(filename):
     Given the name of a CSV file, reads student names and exam marks from
     that file, returning them as a dictionary mapping name onto mark.
     """
-    with open(filename, "rt") as infile:
-        data = {}
-        infile.readline()  # skip column headings
-        for line in infile:
-            name, mark = line.strip().split(",")
-            data[name] = mark
-        return data
+    marks = {}
+    with open(filename) as f:
+        for line in f:
+            name, mark_str = line.strip().split(",")
+            mark = int(mark_str)
+            marks[name] = mark
+    return marks
 
 
 def grade(mark):
@@ -42,11 +42,11 @@ def grade(mark):
     elif 70 <= mark <= 100:
         return "Distinction"
     else:
-        raise MarkError("marks must be in range 0-100")
+        raise isinstance(mark, int) and MarkError(f"Invalid mark: {mark}") or MarkError("Mark must be an integer")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 1:
+    if len(sys.argv) != 2:
         sys.exit("Usage: python grades.py <csv-filename>")
 
     marks = read_marks(sys.argv[1])
