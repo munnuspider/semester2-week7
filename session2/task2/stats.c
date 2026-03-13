@@ -77,6 +77,7 @@ int main(int argc, char* argv[])
 
     float mean = mean_value(data, size);
     float std_dev = standard_deviation(data, size, mean);
+    
 
     display_stats(mean, std_dev);
 

@@ -25,6 +25,7 @@ message and terminate.
 
 2. Run the program to check whether it meets all of the expectations outlined
    above. Make a note of your findings.
+   >>For all 4 tests I get a Mean = nan and Std dev = -nan (not a number)
 
 ## Function Breakpoints
 
